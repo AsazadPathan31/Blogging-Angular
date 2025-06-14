@@ -1,0 +1,33 @@
+<div *ngIf="authService.getUsername() !=''">
+    <div class="header">
+      <div style="text-align: center; color: white"></div>
+      <h1 style="text-align: center; color: #877c6e; position: absolute; width: 100%; margin-top: 30px;">
+        {{ id === null ? 'Add a New Blog' : 'Edit a Blog' }}
+      </h1>
+      <div style="text-align: center; color: white"></div>
+    </div>
+    <div class="create-blog-container">
+      <div style="width: 85%; margin: auto; padding: 40px 0px 40px 0px;">
+        <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+          <p>{{ id === null  ? 'Add Blog Title here' : 'Update Blog Title here ' }}
+          </p>
+          <mat-form-field appearance="fill">
+            <mat-label>Blog Title</mat-label>
+            <input matInput type="text" id="blogTitle" formControlName="blogTitle" />
+            <mat-error *ngIf="blogForm.get('blogTitle')?.hasError('required')">* Blog Title is required</mat-error>
+            <mat-error *ngIf="blogForm.get('blogTitle')?.hasError('minlength')">* Blog Title must be at least 22
+              characters</mat-error>
+          </mat-form-field>
+          <p>{{ id ===null ? 'Add Blog Content here' : 'Update Blog Content here ' }}
+          <div style="margin: auto; ">
+            <ckeditor [config]="{ height: '30vh', width: '100%' }" formControlName="editorContent"></ckeditor>
+          </div>
+          <div>
+            <button type="submit" mat-raised-button color="primary" type="submit" [disabled]="!blogForm.valid">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

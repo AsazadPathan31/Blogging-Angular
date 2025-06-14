@@ -1,0 +1,33 @@
+.main-panel {
+  position: relative;
+  float: right;
+  width: calc(100% - 260px);
+  -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  width: 260px;
+  left: 0;
+  z-index: 1030;
+  right: auto;
+  left: 0;
+  visibility: visible;
+  overflow-y: visible;
+  padding: 0;
+  transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  transform: translate(0);
+}
+
+@media only screen and (max-width:800px){
+  .wrapper{
+    overflow: scroll; width: 300%;
+  }
+}

@@ -1,0 +1,43 @@
+.header{
+  height: 130px; background-color: #e5eeed;
+}
+.header h1{
+      text-align: center;
+      color: #877c6e;
+      position: absolute;
+      width: 100%;
+      margin-top: 30px;
+}
+
+.author-info{
+    overflow: scroll;
+
+    width: 80%;
+    height: 568px;
+    background-color: #c7b79d;
+    margin: -30px auto auto auto;
+    text-align: center;
+}
+.author-info textarea{
+  background: none;
+  border: none;
+  width: 79%;
+  height: 90%;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  text-align: justify;
+  padding: 40px 40px 0px 0px;
+  color: #877c6e;
+
+}
+.author-info div{
+background: none;
+border: none;
+/* width: 79%; */
+/* height: 90%; */
+font-size: 20px;
+font-family: 'Montserrat';
+text-align: justify;
+padding: 40px 40px 0px 40px;
+color: #877c6e;
+}

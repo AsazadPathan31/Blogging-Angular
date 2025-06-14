@@ -1,0 +1,38 @@
+.cke_chrome{
+  margin: auto !important;
+}
+blockquote {
+  border-left: 2px solid #ccc !important;
+  margin: 10px 0 !important;
+  padding-left: 10px !important;
+}
+
+.mat-mdc-form-field {
+  width: 100% !important;
+  display: block !important;
+}
+button {
+  display: block;
+  width: 80% !important;
+  height: 60px;
+  margin: auto;
+  margin-top: 15px !important;
+  background-color:#877c6e;
+  color: white;
+  border-radius: 20px;
+  border: 0px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+
+
+.header{
+  height: 130px; background-color: #e5eeed;
+}
+.header h1{
+  text-align: center; color: #877c6e; position: absolute; width: 100%; margin-top: 30px;
+}
+.blog-edit-container{
+  width: 90%; margin: auto; margin-top: -30px !important; background-color: #c7b79d; height: 79vh; overflow: scroll;
+}

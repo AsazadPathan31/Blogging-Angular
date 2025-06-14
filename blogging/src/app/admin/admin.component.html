@@ -1,0 +1,27 @@
+<!-- Task 3: Add HTML template here -->
+<div class="login-form">
+    <div class="login-content">
+      <mat-toolbar class="login-toolbar">Sign in to your Admin account</mat-toolbar>
+      <mat-card>
+        <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput type="text" id="username" formControlName="username" />
+            <mat-error *ngIf="logInForm.get('username')?.hasError('required')">* Username is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" id="password" formControlName="password" />
+            <mat-error *ngIf="logInForm.get('password')?.hasError('required')">* Password is required
+            </mat-error>
+          </mat-form-field>
+          <div>
+            <button type="submit" mat-raised-button color="primary" type="submit" [disabled]="!logInForm.valid">
+              Log in
+            </button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>

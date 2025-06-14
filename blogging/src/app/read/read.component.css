@@ -1,0 +1,40 @@
+blockquote p {
+  border-right: 1px solid black !important;
+}
+
+table td {
+  border-left: 1px solid !important;
+  padding-left: 1px solid;
+}
+
+.panel-header {
+  height: 130px;
+  background-color: #e5eeed
+}
+
+.blog-container {
+  overflow: scroll;
+  width: 80%;
+  height: 568px;
+  background-color: #c7b79d;
+  margin: -70px auto auto auto;
+  text-align: center;
+
+}
+
+.blog-content {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  text-align: justify;
+  padding: 40px 40px 0px 40px;
+  color: #695740;
+}
+
+h1 {
+  text-align: center;
+  color: #877c6e;
+  width: 100%;
+
+}

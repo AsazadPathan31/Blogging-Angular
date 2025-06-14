@@ -1,0 +1,15 @@
+<div *ngIf="this.blog != undefined">
+    <div class="panel-header">
+      <div style="text-align: center; color: white"></div>
+    </div>
+    <div class="blog-container">
+      <div  class="blog-content">
+        <h1>
+          {{blog.data.blog_title}}
+        </h1>
+        <div style="margin: auto; overflow:auto;" id="content-container"></div>
+        <hr>
+        <p style="color: white;font-size: 15px;">Last Updated: {{blog.data.timestamp}}</p>
+      </div>
+    </div>
+  </div>
