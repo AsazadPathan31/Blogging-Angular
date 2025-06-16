@@ -1,8 +1,10 @@
-<div class="wrapper">
-  <div class="sidebar" data-color="red" >
-      <app-sidebar></app-sidebar>
-  </div>
-  <div class="main-panel">
-      <router-outlet></router-outlet>
-  </div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+			<app-sidebar></app-sidebar>
+		</div>
+		<div class="col-md-10">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
 </div>

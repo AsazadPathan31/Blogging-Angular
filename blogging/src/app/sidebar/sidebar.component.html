@@ -1,38 +1,30 @@
-<div class="sidebar-wrapper">
-	<mat-list style="margin: 40px 10px 40px 10px">
-		<mat-list-item>
-			<p class="sidebar-title">Global Insight</p>
-		</mat-list-item>
-		<!-- Task 4: Add sidebar's HTML template here -->
-		<mat-list-item
-			*ngFor="let menuItem of menuItems"
-			[routerLink]="[menuItem.path]"
-			routerLinkActive="active"
-			[class.displayNone]="
-				(authService.getUsername() == '' && menuItem.adminAccessRequired) ||
-				(menuItem.showWhenLoggedIn == false && authService.getUsername())
-			"
-		>
-			<div>
-				<div
-					style="
-						display: flex;
-						transition: all 2s ease-in;
-						justify-content: center;
-					"
-				>
-					<mat-icon color="white" fontIcon="{{ menuItem.icon }}"></mat-icon>
-					<p class="menu-item-title">{{ menuItem.title }}</p>
-				</div>
-			</div>
-		</mat-list-item>
-		<!-- Task 3: Add the click event in the below tag  -->
-		<mat-list-item
-			style="cursor: pointer"
-			(click)="authService.logout()"
-			*ngIf="authService.getUsername() !== ''"
-		>
-			<p class="logout">Log out</p>
-		</mat-list-item>
-	</mat-list>
-</div>
+<mat-nav-list class="sidebar-list">
+	<mat-list-item><h4 class="title">Asazad Blog Insight</h4> </mat-list-item>
+	<mat-divider class="mb-4"></mat-divider>
+	<mat-list-item
+		mat-list-item
+		*ngFor="let menuItem of menuItems"
+		[routerLink]="[menuItem.path]"
+		routerLinkActive="active"
+		[class.displayNone]="
+			(authService.getUsername() == '' && menuItem.adminAccessRequired) ||
+			(menuItem.showWhenLoggedIn == false && authService.getUsername())
+		"
+	>
+		<div class="d-flex align-items-center">
+			<button mat-icon-button>
+				<mat-icon color="primary">{{ menuItem.icon }}</mat-icon>
+			</button>
+			<span class="fs-6">{{ menuItem.title }}</span>
+		</div>
+	</mat-list-item>
+	<button
+		class="mt-4"
+		mat-flat-button
+		color="primary"
+		(click)="authService.logout()"
+		*ngIf="authService.getUsername() !== ''"
+	>
+		Log out
+	</button>
+</mat-nav-list>
