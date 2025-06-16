@@ -1,15 +1,23 @@
-<div *ngIf="this.blog != undefined">
-    <div class="panel-header">
-      <div style="text-align: center; color: white"></div>
-    </div>
-    <div class="blog-container">
-      <div  class="blog-content">
-        <h1>
-          {{blog.data.blog_title}}
-        </h1>
-        <div style="margin: auto; overflow:auto;" id="content-container"></div>
-        <hr>
-        <p style="color: white;font-size: 15px;">Last Updated: {{blog.data.timestamp}}</p>
-      </div>
-    </div>
-  </div>
+<div *ngIf="blog != undefined">
+	<mat-card class="read-blog-card wide-blog-card fancy-shadow">
+		<div class="blog-banner"></div>
+		<mat-card-header>
+			<div mat-card-avatar class="blog-avatar"></div>
+			<mat-card-title>
+				{{ blog.data.blog_title }}
+			</mat-card-title>
+			<mat-card-subtitle>
+				<span class="blog-date"
+					>🕒 Last Updated: {{ blog.data.timestamp }}</span
+				>
+			</mat-card-subtitle>
+		</mat-card-header>
+		<mat-divider></mat-divider>
+		<mat-card-content>
+			<div
+				class="blog-content spacious-content"
+				[innerHTML]="blog.data.blog_content"
+			></div>
+		</mat-card-content>
+	</mat-card>
+</div>

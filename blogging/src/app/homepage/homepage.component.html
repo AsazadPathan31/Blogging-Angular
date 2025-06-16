@@ -1,25 +1,50 @@
 <div class="header">
-  <h1>
-    Dive into Our Blog Collection!
-  </h1>
+	<h1>Dive into Our Blog Collection!</h1>
 </div>
-<div class="blogs-area">
-  <div class="blogs-grid">
-    <div *ngFor="let blog of blogs" class="single-blog">
-      <h3> {{ blog.data.blog_title }}
-      </h3>
-      <h5 style="color: #b78b08">
-        <span class="uabb-meta-date">
-          <i aria-hidden="true" class=""></i> {{ blog.data.timestamp }}
-        </span>
-      </h5>
-      <div style="display: flex; justify-content: space-between;">
-        <span><a [routerLink]="['/read',blog.id]" style="text-decoration: none;">Read Now →</a></span>
-        <br>
-        <span *ngIf="authService.getUsername() !== ''"><a [routerLink]="['/edit',blog.id]">Edit Now →</a></span>
-        <br>
-        <span *ngIf="authService.getUsername() !== ''"><button (click)="deleteBlogPost(blog.id)">Delete→</button></span>
-      </div>
-    </div>
-  </div>
+<div class="blogs-area" style="display: flex; justify-content: center">
+	<div
+		class="blogs-grid"
+		style="
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 32px;
+			max-width: 1200px;
+			width: 100%;
+			margin: 0 auto;
+			background: none;
+		"
+	>
+		<mat-card
+			*ngFor="let blog of blogs"
+			class="single-blog"
+			style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08)"
+		>
+			<mat-card-header>
+				<mat-card-title>{{ blog.data.blog_title }}</mat-card-title>
+				<mat-card-subtitle>
+					<span class="uabb-meta-date">
+						<i aria-hidden="true" class=""></i> {{ blog.data.timestamp }}
+					</span>
+				</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<!-- You can add a blog summary or excerpt here if available -->
+			</mat-card-content>
+			<mat-card-actions style="display: flex; justify-content: space-between">
+				<a mat-button color="primary" [routerLink]="['/read', blog.id]"
+					>Read Now →</a
+				>
+				<span *ngIf="authService.getUsername() !== ''">
+					<a mat-button color="accent" [routerLink]="['/edit', blog.id]"
+						>Edit Now →</a
+					>
+				</span>
+				<span *ngIf="authService.getUsername() !== ''">
+					<button mat-button color="warn" (click)="deleteBlogPost(blog.id)">
+						Delete →
+					</button>
+				</span>
+			</mat-card-actions>
+		</mat-card>
+	</div>
 </div>
