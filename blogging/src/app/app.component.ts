@@ -1,16 +1,14 @@
 // app.component.ts
 
 import { Component } from '@angular/core';
-import { AuthService } from './auth.service';
+import { LoadingService } from './core/services/loading.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
-
-  constructor(public authService: AuthService) {
-  }
+	loading$ = this.loadingService.loading$;
+	constructor(private loadingService: LoadingService) {}
 }

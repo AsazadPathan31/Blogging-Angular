@@ -15,3 +15,10 @@ body {
 	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+.custom-snackbar {
+  background: linear-gradient(90deg, #7b2ff2 0%, #f357a8 100%) !important;
+  color: #fff !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}

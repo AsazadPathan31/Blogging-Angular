@@ -1,7 +1,21 @@
 .drawer-container {
-  width: auto;
-  height: 200px;
-  margin: 10px;
-  border: 1px solid #555;
-  background: #eee;
+	width: auto;
+	height: 200px;
+	margin: 10px;
+	border: 1px solid #555;
+	background: #eee;
+}
+
+.app-footer {
+	width: 100%;
+	text-align: center;
+	padding: 16px 0;
+	background: #f8f9fa;
+	color: #7b2ff2;
+	font-weight: 600;
+	letter-spacing: 1px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
 }

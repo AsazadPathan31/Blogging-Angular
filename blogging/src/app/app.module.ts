@@ -22,7 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CreateEditComponent } from './create-edit/create-edit.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProfileComponent } from './profile/profile.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReadComponent } from './read/read.component';
@@ -30,6 +30,8 @@ import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
 	declarations: [
@@ -60,8 +62,11 @@ import { MatButtonModule } from '@angular/material/button';
 		MatListModule,
 		MatIconModule,
 		MatButtonModule,
+		MatSnackBarModule,
 	],
-	providers: [],
+	providers: [
+		{ provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

@@ -6,6 +6,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import firebase from 'firebase/compat';
 import { BehaviorSubject, Observable, map, of, switchMap } from 'rxjs';
 import * as bcrypt from 'bcryptjs';
+import { SnackbarService } from './core/services/snackbar.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -27,7 +28,11 @@ export class AuthService {
 		return this.usernameSubject.value;
 	}
 
-	constructor(private firestore: AngularFirestore, private router: Router) {}
+	constructor(
+		private firestore: AngularFirestore,
+		private router: Router,
+		private snackbarService: SnackbarService
+	) {}
 
 	signIn(username: string, password: string) {
 		this.firestore
@@ -47,17 +52,17 @@ export class AuthService {
 								this.router.navigate(['']);
 							} else {
 								// Invalid credentials
-								window.alert('Invalid credentials');
+								this.snackbarService.open('Invalid credentials');
 							}
 						});
 					} else {
 						// Username not found
-						window.alert('Invalid credentials');
+						this.snackbarService.open('Invalid credentials');
 					}
 				},
 				error: (error: any) => {
 					// Handle Firestore query error
-					window.alert(error);
+					this.snackbarService.open(error);
 				},
 			});
 	}

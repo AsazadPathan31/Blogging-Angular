@@ -5,12 +5,17 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, map, of, switchMap } from 'rxjs';
+import { SnackbarService } from './core/services/snackbar.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class BlogsService {
-	constructor(private firestore: AngularFirestore, private router: Router) {}
+	constructor(
+		private firestore: AngularFirestore,
+		private router: Router,
+		private snackbarService: SnackbarService
+	) {}
 
 	getBlogs(): Observable<any[]> {
 		return this.firestore
@@ -54,7 +59,7 @@ export class BlogsService {
 				this.router.navigate(['']);
 			})
 			.catch((error) => {
-				window.alert(`Error adding blog post: ${error}`);
+				this.snackbarService.open(`Error adding blog post: ${error}`);
 			});
 	}
 
@@ -72,13 +77,13 @@ export class BlogsService {
 			});
 			this.router.navigate(['']);
 		} catch (error: any) {
-			window.alert(`Error updating blog post: ${error.error}`);
+			this.snackbarService.open(`Error updating blog post: ${error.error}`);
 		}
 	}
 
 	async deleteBlogPost(blogId: string) {
 		if (!blogId) {
-			window.alert('Blog post ID is empty or undefined.');
+			this.snackbarService.open('Blog post ID is empty or undefined.');
 		}
 
 		const blogDocRef = this.firestore.collection('blogs').doc(blogId);
