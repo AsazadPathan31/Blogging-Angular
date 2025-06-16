@@ -121,32 +121,32 @@ body,
 }
 
 .decorative-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  background: linear-gradient(90deg, #1976d2 30%, #43a047 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  letter-spacing: 1.5px;
-  text-align: center;
-  margin: 0;
-  position: relative;
-  text-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
-  display: inline-block;
+	font-size: 2.5rem;
+	font-weight: 800;
+	background: linear-gradient(90deg, #1976d2 30%, #43a047 70%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	letter-spacing: 1.5px;
+	text-align: center;
+	margin: 0;
+	position: relative;
+	text-shadow: 0 2px 8px rgba(25, 118, 210, 0.1);
+	display: inline-block;
 }
 
 .decorative-title .globe-emoji {
-  font-size: 2.2rem;
-  vertical-align: middle;
-  margin-right: 10px;
-  filter: drop-shadow(0 2px 2px #b3e5fc);
+	font-size: 2.2rem;
+	vertical-align: middle;
+	margin-right: 10px;
+	filter: drop-shadow(0 2px 2px #b3e5fc);
 }
 
 .decorative-title .highlight {
-  border-bottom: 4px solid #43a047;
-  padding-bottom: 2px;
-  background: none;
+	border-bottom: 4px solid #43a047;
+	padding-bottom: 2px;
+	background: none;
 }
 
 @media (max-width: 800px) {
