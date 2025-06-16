@@ -11,12 +11,16 @@
 			(menuItem.showWhenLoggedIn == false && authService.getUsername())
 		"
 	>
-		<div class="d-flex align-items-center">
-			<button mat-icon-button>
-				<mat-icon color="primary">{{ menuItem.icon }}</mat-icon>
-			</button>
-			<span class="fs-6">{{ menuItem.title }}</span>
-		</div>
+		<ng-container
+			*ngIf="menuItem.title !== 'Create' || authService.getUsername() !== ''"
+		>
+			<div class="d-flex align-items-center">
+				<button mat-icon-button>
+					<mat-icon color="primary">{{ menuItem.icon }}</mat-icon>
+				</button>
+				<span class="fs-6">{{ menuItem.title }}</span>
+			</div>
+		</ng-container>
 	</mat-list-item>
 	<button
 		class="mt-4"

@@ -18,7 +18,6 @@ a:focus {
 	text-align: center;
 	color: #877c6e;
 	margin-top: 30px;
-	width: 100%;
 	position: absolute;
 }
 
@@ -26,15 +25,16 @@ a:focus {
 	margin: -50px auto auto auto !important;
 	margin: auto;
 	width: 90%;
-	background-color: #c7b79d;
+	background-color: #c77f0b;
 }
 
 .blogs-grid {
-	margin: auto;
 	display: grid;
-	grid-template-columns: repeat(2, 350px);
-	column-gap: 90px;
-	justify-content: center;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 32px;
+	width: 100%;
+	margin: 0 auto;
+	align-items: start;
 }
 
 .single-blog {
@@ -47,6 +47,7 @@ a:focus {
 	margin-top: 20px !important;
 	width: 100%;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	background: none !important;
 }
 
 .single-blog h3 {
@@ -63,22 +64,17 @@ a:focus {
 	background: rgba(183, 3, 3, 0.865) !important;
 	color: white !important;
 	font-family: 'Montserrat', sans-serif !important;
-	/* padding:5px; */
 }
 
 button {
 	cursor: pointer;
 }
 
-@media only screen and (min-width: 800px) and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
 	.blogs-grid {
-		margin: auto;
-		display: grid;
-		grid-template-columns: repeat(1, 450px);
-		column-gap: 20px;
-		justify-content: center;
+		grid-template-columns: 1fr;
 	}
 	.single-blog {
-		width: 90%;
+		width: 100%;
 	}
 }
