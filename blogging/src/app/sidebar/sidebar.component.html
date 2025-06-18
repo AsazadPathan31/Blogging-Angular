@@ -2,31 +2,46 @@
 	<mat-list-item class="sidebar-title-item">
 		<div class="sidebar-title-highlight">
 			<mat-icon class="sidebar-title-icon" color="primary">insights</mat-icon>
-			<h4 class="title">Asazad <span class="highlighted">Blog Insight</span></h4>
+			<h4 class="title">
+				Asazad <span class="highlighted">Blog Insight</span>
+			</h4>
 		</div>
 	</mat-list-item>
 	<mat-divider class="mb-4"></mat-divider>
-	<mat-list-item
-		mat-list-item
-		*ngFor="let menuItem of menuItems"
-		[routerLink]="[menuItem.path]"
-		routerLinkActive="active"
-		[class.displayNone]="
-			(authService.getUsername() == '' && menuItem.adminAccessRequired) ||
-			(menuItem.showWhenLoggedIn == false && authService.getUsername())
-		"
-	>
-		<ng-container
-			*ngIf="menuItem.title !== 'Create' || authService.getUsername() !== ''"
-		>
-			<div class="d-flex align-items-center">
-				<button mat-icon-button>
-					<mat-icon color="primary">{{ menuItem.icon }}</mat-icon>
-				</button>
-				<span class="fs-6">{{ menuItem.title }}</span>
-			</div>
+	<ng-container *ngFor="let menuItem of menuItems">
+		<ng-container *ngIf="menuItem.type === 'header'">
+			<mat-list-item class="sidebar-header-item">
+				<span class="sidebar-header-text">{{ menuItem.title }}</span>
+			</mat-list-item>
 		</ng-container>
-	</mat-list-item>
+		<ng-container *ngIf="menuItem.type === 'item'">
+			<app-sidebar-item [menuItem]="menuItem"></app-sidebar-item>
+		</ng-container>
+		<ng-container
+			*ngIf="
+				(menuItem.title === 'Create' && authService.getUsername() !== '') ||
+				(menuItem.title === 'Admin' && authService.getUsername() === '') ||
+				(menuItem.title !== 'Create' && menuItem.title !== 'Admin')
+			"
+		>
+			<mat-list-item
+				mat-list-item
+				[routerLink]="[menuItem.path]"
+				routerLinkActive="active"
+				[class.displayNone]="
+					(authService.getUsername() == '' && menuItem.adminAccessRequired) ||
+					(menuItem.showWhenLoggedIn == false && authService.getUsername())
+				"
+			>
+				<div class="d-flex align-items-center">
+					<button mat-icon-button>
+						<mat-icon color="primary">{{ menuItem.icon }}</mat-icon>
+					</button>
+					<span class="fs-6">{{ menuItem.title }}</span>
+				</div>
+			</mat-list-item>
+		</ng-container>
+	</ng-container>
 	<button
 		class="mt-4"
 		mat-flat-button
